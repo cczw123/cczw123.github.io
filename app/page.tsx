@@ -133,6 +133,7 @@ export default function Page() {
 
   // Render original order on the server; shuffle after mount to avoid hydration mismatch
   const [shuffled, setShuffled] = React.useState<Project[]>(projects);
+  const [shuffleNonce, setShuffleNonce] = React.useState(0);
   React.useEffect(() => {
     const arr = projects.slice();
     for (let i = arr.length - 1; i > 0; i--) {
@@ -140,6 +141,7 @@ export default function Page() {
       [arr[i], arr[j]] = [arr[j], arr[i]];
     }
     setShuffled(arr);
+    setShuffleNonce((n) => n + 1);
   }, []);
 
   return (
@@ -165,7 +167,7 @@ export default function Page() {
 
       <section className="space-y-6">
         {shuffled.map((p, idx) => (
-          <React.Fragment key={p.id}>
+          <React.Fragment key={`${p.id}-${shuffleNonce}`}>
             <ProjectCard {...p} />
             {idx < shuffled.length - 1 && <Divider />}
           </React.Fragment>
