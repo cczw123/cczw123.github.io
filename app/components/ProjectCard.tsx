@@ -7,9 +7,11 @@ export type ProjectCardProps = {
   badge?: string;
   // Optional PDF to preview inside the card (will override mediaSrc if provided)
   pdfSrc?: string;
+  // Optional embedded video (e.g., Vimeo/YouTube)
+  videoEmbedSrc?: string;
 };
 
-export function ProjectCard({ title, description, href, mediaSrc, mediaAlt, badge, pdfSrc }: ProjectCardProps) {
+export function ProjectCard({ title, description, href, mediaSrc, mediaAlt, badge, pdfSrc, videoEmbedSrc }: ProjectCardProps) {
   return (
     <a
       href={href}
@@ -44,6 +46,20 @@ export function ProjectCard({ title, description, href, mediaSrc, mediaAlt, badg
               />
               <div className="pointer-events-none absolute right-2 top-2 rounded bg-white/80 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-200">
                 PDF
+              </div>
+            </>
+          ) : videoEmbedSrc ? (
+            <>
+              <iframe
+                className="h-full w-full"
+                src={videoEmbedSrc}
+                title={`${title} video preview`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
+              <div className="pointer-events-none absolute right-2 top-2 rounded bg-white/80 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-900/70 dark:text-zinc-200">
+                Video
               </div>
             </>
           ) : mediaSrc ? (

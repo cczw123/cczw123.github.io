@@ -22,6 +22,7 @@ export default function Page() {
       href: "/projects/feast",
       mediaAlt: "Empathy in Point Cloud",
       badge: "Research",
+      videoEmbedSrc: "https://player.vimeo.com/video/1000800913?dnt=1&app_id=122963",
     },
     {
       id: "igym",
@@ -31,6 +32,7 @@ export default function Page() {
       href: "/projects/igym",
       mediaAlt: "AirPlay",
       badge: "Assistive Tech",
+      videoEmbedSrc: "https://player.vimeo.com/video/911849858?badge=0&autopause=0&player_id=0&app_id=58479",
     },
     {
       id: "alpha",
@@ -146,6 +148,16 @@ export default function Page() {
       pdfSrc: "/docs/project-3.pdf",
       mediaAlt: "3D Modeling PDF preview",
       badge: "PDF",
+    },
+    {
+      id: "bilibili-game",
+      title: "Action Game Prototype",
+      description:
+        "Gameplay prototype showcasing combat and movement. Video hosted on Bilibili.",
+      href: "/projects/bilibili-game",
+      mediaSrc: "https://i1.hdslb.com/bfs/archive/0b11f2c3c1b0b9b5e93b10b7b21d5110f6b7542c.jpg",
+      mediaAlt: "Action Game Prototype thumbnail",
+      badge: "Prototype",
     },
   ];
 
